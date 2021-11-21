@@ -4,7 +4,7 @@
 
 # ML Library Project 3
 
-![PythonCI](https://github.com/AroraShreshth/ucs757-project3/workflows/PythonCI/badge.svg)
+[![PythonCI](https://github.com/AroraShreshth/ucs757-project3/actions/workflows/Django%20CI.yml/badge.svg)](https://github.com/AroraShreshth/ucs757-project3/actions/workflows/Django%20CI.yml)
 </div>
 
 ## About  💫
