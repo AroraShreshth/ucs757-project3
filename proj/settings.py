@@ -30,7 +30,7 @@ SECRET_KEY = '%9(8-9wo*^zlfv4at*5w!heylo1!m#xymr-v4zcybs$(x*qftx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ucs757-project1.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['ucs757-project3.herokuapp.com', '127.0.0.1', 'localhost']
 
 website_name = "ML Library"
 # Application definition
