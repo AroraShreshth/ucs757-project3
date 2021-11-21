@@ -1,0 +1,90 @@
+{% extends "dashboard/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+ 
+ <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Hey, {{ user.username }}  !
+      </h1>
+      <p class="subtitle">
+        Dashboard of Emotion Detection. Upload an image and see the result.
+      </p>
+
+      </div>
+  </section>
+  <section class="section">
+   <div class=" column  is-vertical is-6 content-section is-centered">
+
+            <form method="POST" class="box" enctype="multipart/form-data" >
+                       <h1 class="title ">
+                            <span class="icon mx-1 ">
+                                <i class="is-small fas fa-user"></i>
+                            </span>
+                            Upload Image
+                        </h1>
+                      
+                        <fieldset class="form-group">
+                        
+
+                    {% csrf_token %}
+    
+                        <div class="control ">
+                            <label class="file-label">
+                           <input type="file" name="image" accept="image/*" class=" file-input" id="id_image" >
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                <i class="fa fa-upload"></i>
+                                </span>
+                                <span class="file-label" id="uploadprofilelabel">
+                                Upload New Image for Analysis
+                                </span>
+                            </span>
+                            <span class="file-name" id="profilefilename">
+                                No file Selected
+                            </span>
+                            </label>
+                        </div>
+                        <table style="display: none">
+                            {{ view.formset.empty_form }}
+                        </table>
+                        <table>
+                            {{ view.formset }}
+                             <hr class="dropdown-divider">
+                        </table>
+                    </fieldset>
+                    
+                    <div class="form-group">
+                        <div class="form-group ">
+                            <div class="control ">
+                                <button class="my-2  has-text-centered button is-link is-fullwidth" type="submit">
+                                    <span class="icon mx-1 ">
+                                        <i class="is-small fas fa-user"></i>
+                                    </span>
+                                    <strong> Create New File for ML Analysis</strong>
+                                </button>
+                            </div>
+                        </div>
+                </form> 
+  </div>
+      </section>
+<script>
+var input = document.getElementById( 'id_image' );
+var infoArea = document.getElementById( 'profilefilename' );
+
+input.addEventListener( 'change', showFileName );
+
+function showFileName( event ) {
+  console.log('running')
+  // the change event gives us the input it occurred in 
+  var input = event.srcElement;
+  
+  // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+  var fileName = input.files[0].name;
+  
+  // use fileName however fits your app best, i.e. add it into a div
+  infoArea.textContent = 'File name: ' + fileName;
+}.innerHTML += '</ul>';
+}
+</script>
+{% endblock content %}

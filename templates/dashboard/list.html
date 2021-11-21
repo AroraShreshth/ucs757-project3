@@ -1,0 +1,55 @@
+{% extends "dashboard/base.html" %}
+{% load crispy_forms_tags %}
+{% load bulma_tags %}
+{% load static %}
+{% block content %}
+ 
+ <section class="section">
+    <div class="container box ">
+      <h1 class="title">
+       All Your Calls {{count}}
+      </h1>
+      <p class="subtitle">
+       Here are some <strong> ML Emotion Model calls  </strong> you made for yourself {{ user.username }} , browse the results and let us know.
+      </p>
+
+          <p class="subtitle">
+      As the Heroku Storage is ephermal please delete the runs that you have done as it might cause db issues later ob for your user case or make a different user if the problem persists.
+
+      </p>
+    </div>
+
+  </section>
+
+<section class="section">
+    
+{% for mlcall in mlcalls %}
+    <div class="container bpx ">
+      <h1 class="title ">
+      <figure class="image is-128x128">
+            <img class="is-rounded" src="{{mlcall.image.url}}">
+      </figure>
+       {{ mlcall.result }}
+       <div class="buttons level-right">
+        <a href="{% url 'trigger-call' mlcall.id  %}"><button class="button is-medium is-link has-text-weight-bold"> Detect The Emotion </button></a>
+        <a href="{% url 'dashboard-delete' mlcall.id %}" class="dropdown-item"> <button class="button is-medium is-danger has-text-weight-bold"> DELETE </button></a>
+        </div>
+      </h1>
+      <p class="subtitle">
+        {{ mlcall.created_date}}, {{ mlcall.user.username }} , ID: {{ mlcall.id }}
+      </p>
+    <br>
+    </div>
+{% endfor %}
+{% if not count %}
+       <figure class="image is-1028x1028">
+        <img src="{% static 'images/empty.png' %}" alt="Image">
+      </figure>
+{% endif %}
+
+  
+  </section>
+
+
+
+{% endblock content %}

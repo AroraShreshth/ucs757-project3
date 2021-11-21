@@ -1,0 +1,67 @@
+{% extends "dashboard/base_foc.html" %}
+{% load crispy_forms_tags %}
+{% load bulma_tags %}
+{% block content %}
+
+<section class="section">
+    <div class="container has-text-centered">
+        <h1 class="title">
+            Join us !
+        </h1>
+        <p class="subtitle">
+            Making ML Projects <strong> Easily Accesible</strong> & <strong> Interactive</strong> for everyone
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="columns is-centered">
+        <div class="column is-half ">
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|bulma }}
+                    </fieldset>
+                    <div class="form-group ">
+                        <div class="control ">
+
+                            <button class="my-2  has-text-centered button is-link is-fullwidth" type="submit">
+                                <strong>
+                                    <span class="icon mx-1 ">
+                                        <i class="is-small fas fa-fingerprint"></i>
+                                    </span>
+                                    Register
+                                </strong>
+                            </button>
+                        </div>
+                        <small> By Clicking on Register button you accept the
+                            <a href="#" target="_blank">
+                                Privacy Policy
+                            </a>
+                            &
+                            <a href="#" target='_blank'>Terms of Service </a>
+                        </small>
+                        <br>
+                        <small>
+                            This page is protected by Google reCAPTCHA to ensure you're not a bot
+                        </small>
+                    </div>
+                </form>
+                <div class="border-top py-4 ">
+                    <div class="text-muted ">
+                        <a class="button has-text-centered is-primary is-fullwidth" href="{% url 'login' %}" >
+                            <strong>
+                                <span class="icon mx-1 ">
+                                    <i class="is-small fas fa-key"></i>
+                                </span>
+                                 Sign In
+                            </strong>
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock content %}

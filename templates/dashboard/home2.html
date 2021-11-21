@@ -1,0 +1,41 @@
+{% extends "dashboard/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+ <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Hey, {{ user.username }}  !
+      </h1>
+      <p class="subtitle">
+        Dashboard of Emotion Detection. Upload an image and see the result.
+      </p>
+
+      </div>
+  </section>
+  <section class="section">
+   <div class=" column is-horizontal  is-6 content-section is-centered">
+<form method="POST" class="box" enctype="multipart/form-data" >
+        <h1 class="title ">
+                                    <span class="icon mx-1 ">
+                                        <i class="is-small fas fa-user"></i>
+                                    </span>
+                                    Upload Image
+        </h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+        <div class="form-group">
+                        <div class="form-group ">
+                            <div class="control ">
+                                <button class="my-2  has-text-centered button is-link is-fullwidth" type="submit">
+                                    <span class="icon mx-1 ">
+                                        <i class="is-small fas fa-user"></i>
+                                    </span>
+                                    <strong> Create New File for ML Analysis</strong>
+                                </button>
+                            </div>
+                        </div>
+        </form>
+        </div>
+</section>
+{% endblock content %}

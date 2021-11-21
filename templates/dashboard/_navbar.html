@@ -1,0 +1,133 @@
+{% load imagekit %}
+{% load static %}
+<nav class="navbar is-transparent is-active s-fixed-top is-spaced" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href={% url 'dashboard-home' %}>
+      {% comment %} <h1> <strong> Amiyo </strong> </h1> {% endcomment %}
+       <img src="{% static 'logo.png' %}" width="112" height="28">
+    </a>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start px-4 buttons mt-3">
+      <a class="button is-inverted is-link mt-3 " href={% url 'dashboard-home' %}>
+        <span class="icon ">
+          <i class="fas fa-user-alt"></i>
+        </span>
+        <div class='p-2 '>
+          <strong> Emotion Detection </strong>
+        </div>
+      </a>
+      <a class="button is-inverted is-link mt-3 " href={% url 'dashboard-list' %}>
+        <span class="icon ">
+          <i class="fas fa-compass"></i>
+        </span>
+         <div class='p-2'>
+          <strong> ML Model Calls</strong>
+        </div> 
+      </a>
+      <a class="button is-inverted is-link mt-3 " href={% url 'register' %}>
+        <span class="icon ">
+          <i class="fas fa-box-open"></i>
+        </span>
+        <div class='p-2 '>
+          <strong>Submissions ( soon ) </strong>
+        </div>
+      </a>
+      <a class="button is-inverted is-link mt-3 " href={% url 'logout' %}>
+        <span class="icon ">
+          <i class="fas fa-certificate"></i>
+        </span>
+        <div class='p-2 '>
+          <strong>Logout</strong>
+        </div>
+      </a>
+      
+
+    </div>
+
+    <div class="navbar-end mt-2">
+      <div class="navbar-item">
+        <div class="buttons">
+
+          <a class="button is-danger mt-3 is-fullwidth" href="https://shreshtharora.com">
+            <span class="icon has-text-warning">
+              <i class="fas fa-star"></i>
+            </span>
+            <div class='p-2 '>
+              <strong> shreshtharora.com !</strong>
+            </div>
+          </a>
+
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable pr-6">
+          <div class="navbar-link is-arrowless pb-3">
+            <div class='p-2'>
+              <figure class=" image is-32x32 ">
+              <img src="{% static 'profile_image/default.jpg' %}" >
+                {% comment %} {% thumbnail '128x128' user.profile.image -- alt="Profile Photo"  %} {% endcomment %}
+              </figure>
+            </div>
+          </div>
+
+          <div class="navbar-dropdown buttons ">
+            <a class="button is-white is-small " href=#>
+              <span class="icon has-text-warning ">
+                <i class="fas fa-star"></i>
+              </span>
+              <div class='p-2 '>
+                <strong>Profile ( soon ) </strong>
+              </div>
+            </a>
+            <a class="button is-white is-small " href=#>
+              <span class="icon has-text-link ">
+                <i class="fas fa-cog"></i>
+              </span>
+              <div class='p-2 '>
+                <strong>Settings (soon) </strong>
+              </div>
+            </a>
+            <a class="button is-white is-small " href={% url 'logout' %}>
+              <span class="icon has-text-link ">
+                <i class="fas fa-sign-out-alt"></i>
+              </span>
+              <div class='p-2 '>
+                <strong>Logout</strong>
+              </div>
+            </a>
+            <hr class="navbar-divider mb-2">
+            <a class="navbar-item" href="mailto:arorashreshth1@gmail.com">
+              <small>Report an issue</small>
+            </a>
+            <div class="navbar-item mb-2">
+              <small> Version: 0.0.1</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<script>
+  $(document).ready(function () {
+
+    $(".navbar-burger").click(function () {
+
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+
+    });
+  });
+</script>
+
+<style>
+
+</style>

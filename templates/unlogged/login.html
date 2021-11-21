@@ -1,0 +1,64 @@
+{% extends "dashboard/base_foc.html" %}
+{% load crispy_forms_tags %}
+{% load bulma_tags %}
+{% block content %}
+
+<section class="section">
+    <div class="container has-text-centered">
+        <h1 class="title">
+            Login !
+        </h1>
+        <p class="subtitle">
+            Making <strong>Amazing</strong> & <strong>New </strong> Projects Accesible to the World
+        </p>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="columns is-centered">
+        <div class="column is-half ">
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|bulma }}
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="form-group ">
+                            <div class="control ">
+                                <button class="my-2  has-text-centered button is-link is-fullwidth" type="submit">
+                                    <span class="icon mx-1 ">
+                                        <i class="is-small fas fa-key"></i>
+                                    </span>
+                                    <strong> Login </strong>
+                                </button>
+                            </div>
+                            <small>
+                                This page is protected by Google reCAPTCHA to ensure you're not a bot
+                            </small>
+                        </div>
+                </form>
+                <div class="border-top pt-3 columns is-multiline is-mobile">
+                    <div class="column is-one-quarte">
+                        <a class="button is-warning "href="{% url 'password_reset' %}">
+                                <span class="icon mx-1 ">
+                                    <i class="is-small fas fas fa-user-lock"></i>
+                                </span>
+                                <strong> Forgot Password </strong>
+                        </a>
+                        <small class="text-muted" style="float: right;">
+                            <a class="ml-2 button is-primary" href="{% url 'register' %}">
+                                    <span class="icon mx-1 ">
+                                        <i class="is-small fas fa-fingerprint"></i>
+                                    </span>
+                                  <strong>  Register </strong>
+                            </a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

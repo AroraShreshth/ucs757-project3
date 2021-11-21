@@ -1,0 +1,70 @@
+{% extends "unlogged/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+ 
+ <section class="section">
+    <div class="container">
+      <h1 class="title">
+        {{ website_name }}
+      </h1>
+      <p class="subtitle">
+       Welcome to {{ website_name }} made by Shreshth Arora 101803503 for UCS575 Subject
+
+      </p>
+
+    </div>
+  </section>
+  <section class="section">
+   <div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-primary">
+          <p class="title">Make an Account</p>
+          <p class="subtitle">get started with the first ML model that is emotion Detection, it has been built keeping in mind the requirements of the course and will 
+       host the next two projects required for the Building Innovative Systems course.</p>
+        </article>
+        <article class="tile is-child notification is-warning">
+          <p class="title">Project 2 ( Coming Soon) </p>
+          <p class="subtitle">Project 2 along with Project 3 will be put here for anlaysis and possibility of an API to handle the traffic and loads for user </p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+          <p class="title">Emotion Detection System ML Model</p>
+          <p class="subtitle">This is CNN based ML Model designed for segmenting photos into 7 primary emotions</p>
+          <figure class="image is-4by3">
+            <img src="{% static 'images/index.png' %}">
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-danger">
+        <p class="title">Project 3 ( Coming Soon) </p>
+        <p class="subtitle">Project 2 along with Project 3 will be put here for anlaysis and possibility of an API to handle the traffic and loads for user</p>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-success">
+      <div class="content">
+        <p class="title">ML Library is not just a standalone project </p>
+        <p class="subtitle">the goal is to built a ML Library to mkae it easier for anyone to deploy there own ML Models with quick useriterfaces ike netlify </p>
+        <div class="content">
+          <figure class="image is-4by3">
+            <img src="{% static 'images/index_com.png' %}">
+          </figure>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+  </section>
+  
+
+{% endblock content %}
